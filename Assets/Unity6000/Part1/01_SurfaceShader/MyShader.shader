@@ -1,4 +1,4 @@
-Shader "Custom/MyShader"
+Shader "Unity6000/Part1/SurfaceShader_01"
 {
     //属性块
     Properties{

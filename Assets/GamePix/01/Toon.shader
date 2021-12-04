@@ -1,8 +1,9 @@
-Shader "Custom/Toon"
+Shader "GamePix/Toon"
 {
     Properties
     {
         _MainTex ("Albedo (RGB)", 2D) = "white" {}
+        //漫反射
         _Diffuse("Diffuse",Color)=(1,1,1,1)
     }
     SubShader //根据平台选择 SubShader
@@ -53,7 +54,12 @@ Shader "Custom/Toon"
            
            sampler2D _MainTex;
 
-           float4 frag(v2f IN) : SV_Target
+           //float4 精度16 高精度
+           //half 精度8   中精度
+           //fixed 精度4 低精度
+           
+           
+           float4 frag(v2f IN) : SV_Target // SV system Value
            {
                float3 color = tex2D(_MainTex,IN.uv) * IN.color;
                return fixed4(color,1.0);
